@@ -13,18 +13,21 @@ export default class CursosController {
   }
 
   show({ request }) {
-    const id = request.param("id")
-    return Curso.findOrFail(id)
+    const id = request.param("id");
+    return Curso.findOrFail(id);
   }
 
-  async destroy({request}) {
-    const id = request.param("id")
-    const curso = await Curso.findOrFail(id)
-    return curso.delete()
+  async destroy({ request }) {
+    const id = request.param("id");
+    const curso = await Curso.findOrFail(id);
+    return curso.delete();
   }
 
-  Update({request}) {
-
+  async Update({ request }) {
+    const id = request.param("id");
+    const curso = await Curso.findOrFail(id);
+    const dados = request.only(["nome", "duracao", "modalidade"]);
+    curso.merge(dados);
+    return curso.save();
   }
-  
 }
