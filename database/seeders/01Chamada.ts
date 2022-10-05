@@ -4,7 +4,7 @@ import Chamada from 'App/Models/Chamada'
 export default class extends BaseSeeder {
   public async run () {
     await Chamada.createMany([
-      {aula_id: 1, alunos_id: 2, presenca: 2}
+      {aula_id: 1, alunos_id: 1, presenca: 1}
       
     ])
   }

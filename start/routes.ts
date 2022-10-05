@@ -5,3 +5,4 @@ Route.get('/', async () => {
 })
 
 Route.resource('/cursos', 'CursosController').apiOnly()
+Route.resource('/disciplinas', 'DisciplinasController').apiOnly()

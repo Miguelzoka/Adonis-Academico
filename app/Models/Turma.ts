@@ -12,9 +12,21 @@ export default class Turma extends BaseModel {
   public updatedAt: DateTime
 
   @column()
-public turmas_id: number
+public professorId: number
 
 @column()
-public alunos_id: number
+public salaId: number
+
+@column()
+public nome: string
+
+@column()
+public turma: string
+
+@column()
+public semestreId: number
+
+@column()
+public disciplinaId: number
 
 }

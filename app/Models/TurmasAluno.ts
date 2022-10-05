@@ -12,9 +12,9 @@ export default class TurmasAluno extends BaseModel {
   public updatedAt: DateTime
 
   @column()
-public turmas_id: number
+public turma_id: number
 
 @column()
-public alunos_id: number
+public aluno_id: number
 
 }

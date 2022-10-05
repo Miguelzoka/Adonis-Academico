@@ -4,7 +4,7 @@ import Turma from 'App/Models/Turma'
 export default class extends BaseSeeder {
   public async run () {
     await Turma.createMany([
-      {turmas_id: 1, alunos_id: 2}
+      {nome: 'A', turma: '2', disciplinaId: 1, salaId: 1, professorId: 1, semestreId: 1}
       
     ])
   }

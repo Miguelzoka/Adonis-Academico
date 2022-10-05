@@ -38,4 +38,7 @@ export default class Aluno extends BaseModel {
   @column()
   public bairro: string
 
+  @column()
+  public matricula: string
+
 }
