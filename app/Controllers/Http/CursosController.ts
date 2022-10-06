@@ -1,4 +1,3 @@
-import { afterUpdate } from "@ioc:Adonis/Lucid/Orm";
 import Curso from "App/Models/Curso";
 
 export default class CursosController {
