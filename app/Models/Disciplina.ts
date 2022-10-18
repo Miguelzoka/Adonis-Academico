@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
-import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, belongsTo, BelongsTo, column } from "@ioc:Adonis/Lucid/Orm";
+import Curso from "./Curso";
 
 export default class Disciplina extends BaseModel {
   @column({ isPrimary: true })
@@ -16,4 +17,7 @@ export default class Disciplina extends BaseModel {
 
   @column()
   public cursoId: number;
+
+  @belongsTo(() => Curso)
+  public cursos: BelongsTo<typeof Curso>;
 }
