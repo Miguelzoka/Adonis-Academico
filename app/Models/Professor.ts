@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
-import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, column, HasMany, hasMany } from "@ioc:Adonis/Lucid/Orm";
+import Turma from "./Turma";
 
 export default class Professor extends BaseModel {
   public static table = "professores";
@@ -45,4 +46,7 @@ export default class Professor extends BaseModel {
 
   @column()
   public bairro: string;
+
+  @hasMany (() => Turma)
+  public Turmas: HasMany<typeof Turma>;
 }

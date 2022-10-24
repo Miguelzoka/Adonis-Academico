@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
-import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, column, HasMany, hasMany } from "@ioc:Adonis/Lucid/Orm";
+import Turma from "./Turma";
 
 export default class Semestre extends BaseModel {
   @column({ isPrimary: true })
@@ -19,4 +20,7 @@ export default class Semestre extends BaseModel {
 
   @column()
   public data_fim: string;
+
+  @hasMany (() => Turma)
+  public Turmas: HasMany<typeof Turma>;
 }
