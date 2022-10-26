@@ -22,9 +22,9 @@ export default class Chamada extends BaseModel {
   @column()
   public presenca: number;
 
-  @belongsTo (() => Aula)
+  @belongsTo(() => Aula)
   public Aulas: BelongsTo<typeof Aula>;
 
-  @belongsTo (() => Aluno)
+  @belongsTo(() => Aluno)
   public Alunos: BelongsTo<typeof Aluno>;
 }

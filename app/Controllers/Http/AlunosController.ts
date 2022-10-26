@@ -1,12 +1,13 @@
 import Aluno from "App/Models/Aluno";
+import AlunoValidator from "App/Validators/AlunoValidator";
 
 export default class AlunosController {
   index() {
-    return Aluno.all();
+    return Aluno.query();
   }
 
-  store({ request }) {
-    const dados = request.only(["nome", "cpf"]);
+  async store({ request }) {
+    const dados = await request.validate(AlunoValidator);
     return Aluno.create(dados);
   }
 

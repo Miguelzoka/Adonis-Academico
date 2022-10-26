@@ -1,12 +1,13 @@
 import Curso from "App/Models/Curso";
+import CursoValidator from "App/Validators/CursoValidator";
 
 export default class CursosController {
   index() {
     return Curso.query().preload('disciplinas');
   }
 
-  store({ request }) {
-    const dados = request.only(["nome", "duracao", "modalidade"]);
+  async store({ request }) {
+    const dados = await request.validate(CursoValidator)
 
     return Curso.create(dados);
   }

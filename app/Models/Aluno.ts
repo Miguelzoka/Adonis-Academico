@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
-import { BaseModel, column, HasMany, hasMany } from "@ioc:Adonis/Lucid/Orm";
-import TurmasAluno from "./TurmasAluno";
+import { BaseModel, column, HasMany, hasMany, ManyToMany, manyToMany } from "@ioc:Adonis/Lucid/Orm";
 import Chamada from "./Chamada";
+import Turma from "./Turma";
 
 export default class Aluno extends BaseModel {
   @column({ isPrimary: true })
@@ -43,9 +43,9 @@ export default class Aluno extends BaseModel {
   @column()
   public matricula: string;
 
-  @hasMany(() => TurmasAluno)
-  public TurmasAlunos: HasMany<typeof TurmasAluno>;
-
   @hasMany(() => Chamada)
   public Chamadas: HasMany<typeof Chamada>;
+
+  @manyToMany(() => Turma, {pivotTable: 'TurmasAluno'})
+  public turmas: ManyToMany<typeof Turma>
 }
